@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "permissions": ["contextMenus", "activeTab", "scripting"],
   "icons": {
-    "16": "icon.png",
-    "48": "icon.png",
-    "128": "icon.png"
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
   },
   "background": {
     "service_worker": "background.js"
@@ -15,6 +15,13 @@
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["overlay.html"],
+      "matches": ["<all_urls>"]
     }
   ]
 }
