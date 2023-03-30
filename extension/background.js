@@ -22,7 +22,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
       .then(() => {
         if (info.menuItemId === "ask-chatgpt") {
           // Send a message to the content script
-          console.log("asking chatgpt init");
+          console.log("initializing chatgpt");
           chrome.tabs.sendMessage(tab.id, { type: "SHOW_UI" });
         }
       });

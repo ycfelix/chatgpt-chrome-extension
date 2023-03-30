@@ -1,89 +1,116 @@
 <div class="ask-chatgpt-overlay">
-    <div class="ask-chatgpt-container">
-        <div class="ask-chatgpt-selected-text-container">
-            <textarea class="ask-chatgpt-selected-text" placeholder="Selected text"></textarea>
-        </div>
-        <div class="ask-chatgpt-input-container">
-            <input class="ask-chatgpt-input" type="text" placeholder="Enter your text here...">
-        </div>
-        <div class="ask-chatgpt-buttons-container">
-            <button class="ask-chatgpt-send-button">Send</button>
-            <button class="ask-chatgpt-cancel-button">Cancel</button>
-        </div>
+  <div class="ask-chatgpt-container">
+    <div class="ask-chatgpt-selected-text-container">
+      <textarea
+        class="ask-chatgpt-selected-text"
+        placeholder="Selected text"
+      ></textarea>
     </div>
+    <div class="ask-chatgpt-input-container">
+      <input
+        class="ask-chatgpt-input"
+        type="text"
+        placeholder="Enter your text here..."
+      />
+    </div>
+    <div class="ask-chatgpt-reply-text-container">
+      <textarea
+        class="ask-chatgpt-reply-text"
+        placeholder="chatgpt replies here"
+      ></textarea>
+    </div>
+    <div class="ask-chatgpt-buttons-container">
+      <button class="ask-chatgpt-send-button">Send</button>
+      <button class="ask-chatgpt-donate-button">Donate</button>
+      <button class="ask-chatgpt-cancel-button">Cancel</button>
+    </div>
+  </div>
 </div>
 
 <style>
-    .ask-chatgpt-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 9999;
-    }
+  .ask-chatgpt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
 
-    .ask-chatgpt-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 400px;
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
+  .ask-chatgpt-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
 
-    .ask-chatgpt-selected-text-container {
-        margin-bottom: 10px;
-    }
+  .ask-chatgpt-selected-text-container {
+    margin-bottom: 10px;
+  }
 
-    .ask-chatgpt-selected-text {
-        width: 100%;
-        height: 60px;
-        resize: none;
-        border: none;
-        padding: 10px;
-        font-size: 14px;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
+  .ask-chatgpt-input-container {
+    margin-bottom: 10px;
+  }
 
-    .ask-chatgpt-input-container {
-        margin-bottom: 10px;
-    }
+  .ask-chatgpt-input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
 
-    .ask-chatgpt-input {
-        width: 100%;
-        height: 40px;
-        border: none;
-        padding: 10px;
-        font-size: 14px;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
+  .ask-chatgpt-selected-text {
+    width: 100%;
+    height: 60px;
+    resize: none;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
 
-    .ask-chatgpt-buttons-container {
-        display: flex;
-        justify-content: space-between;
-    }
+  .ask-chatgpt-reply-container {
+    margin-bottom: 10px;
+  }
 
-    .ask-chatgpt-send-button,
-    .ask-chatgpt-cancel-button {
-        width: 120px;
-        height: 40px;
-        border: none;
-        background-color: #4CAF50;
-        color: white;
-        font-size: 14px;
-        font-weight: bold;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+  .ask-chatgpt-reply-text {
+    width: 100%;
+    height: 60px;
+    resize: none;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
 
-    .ask-chatgpt-cancel-button {
-        background-color: #f44336;
-    }
+  .ask-chatgpt-buttons-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .ask-chatgpt-send-button,
+  .ask-chatgpt-cancel-button,
+  .ask-chatgpt-donate-button {
+    width: 120px;
+    height: 40px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .ask-chatgpt-cancel-button {
+    background-color: #f44336;
+  }
 </style>
