@@ -5,7 +5,7 @@ chrome.contextMenus.create({
   contexts: ["all"],
 });
 
-let loaded = false;
+var loaded = false;
 
 // Listen for when the user clicks on the context menu item
 chrome.contextMenus.onClicked.addListener((info, tab) => {
