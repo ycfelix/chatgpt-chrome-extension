@@ -2,8 +2,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   console.log("got message tpye", message.type);
   if (message.type === "SHOW_UI") {
     handleShowUI();
-  } else if (message.type === "ASK_CHATGPT") {
-    getChatgptResponse(message.selectedText, null);
   }
 });
 
@@ -19,7 +17,6 @@ const getChatgptResponse = (text, onResponse) => {
     .then((response) => response.json())
     .then(async (data) => {
       onResponse(data.reply);
-      console.log(data.reply);
       restoreCursor();
     })
     .catch((error) => {
@@ -54,13 +51,13 @@ const handleShowUI = () => {
         ".ask-chatgpt-cancel-button"
       );
 
+      // set the bottom right version tag
+      const versionTag = document.querySelector(".ask-chatgpt-version-tag");
+      getLatestVersion((data) => {
+        versionTag.innerText = `Version ${data.version} ${data.note}`;
+      });
+
       sendButton.addEventListener("click", () => {
-        // Send a message to the background script to call the ChatGPT API
-        // chrome.runtime.sendMessage({
-        //   type: "ASK_CHATGPT",
-        //   customText: inputField.value,
-        //   selectedText: textContent.text,
-        // });
         getChatgptResponse(
           textContent.text,
           (data) => (responseArea.value = data)
@@ -71,6 +68,30 @@ const handleShowUI = () => {
         // Remove the UI overlay
         overlay.remove();
       });
+    });
+};
+
+const getLatestVersion = (onResponse) => {
+  const currentVersion = chrome.runtime.getManifest().version;
+  const latestVersion = JSON.parse(localStorage.getItem("latestVersion"));
+  if (latestVersion && latestVersion.version == currentVersion) {
+    onResponse({
+      version: latestVersion.version,
+      note: "",
+    });
+    return;
+  }
+  fetch("http://localhost:3000/version")
+    .then((response) => response.json())
+    .then((data) => {
+      onResponse({
+        version: data.version,
+        note: currentVersion != data.version ? "upgrade available!" : "",
+      });
+      localStorage.setItem("latestVersion", JSON.stringify(data));
+    })
+    .catch((error) => {
+      console.error("Error fetching latest version:", error);
     });
 };
 

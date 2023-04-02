@@ -49,6 +49,13 @@ class Conversation {
 
 const conversation = new Conversation();
 
+app.get("/version", (req, res) => {
+  res.json({
+    version: "1.0.0",
+    note: "this is a note",
+  });
+});
+
 app.post("/", async (req, res) => {
   try {
     const rawReply = await oraPromise(
