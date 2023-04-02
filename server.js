@@ -58,6 +58,7 @@ app.get("/version", (req, res) => {
 
 app.post("/", async (req, res) => {
   try {
+    console.log(req.body);
     const rawReply = await oraPromise(
       conversation.sendMessage(req.body.message),
       {

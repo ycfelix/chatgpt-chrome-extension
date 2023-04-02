@@ -5,14 +5,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
-const getChatgptResponse = (text, onResponse) => {
+const getChatgptResponse = (data, onResponse) => {
   showLoadingCursor();
   fetch("http://localhost:3000", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ message: text }),
+    body: JSON.stringify({ message: data.text, customText: data.customText }),
   })
     .then((response) => response.json())
     .then(async (data) => {
@@ -59,7 +59,7 @@ const handleShowUI = () => {
 
       sendButton.addEventListener("click", () => {
         getChatgptResponse(
-          textContent.text,
+          { text: textarea.value, customText: inputField.value },
           (data) => (responseArea.value = data)
         );
       });
