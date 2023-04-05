@@ -10,7 +10,7 @@
       <input
         class="ask-chatgpt-input"
         type="text"
-        placeholder="Enter your text here..."
+        placeholder="Any additional requirment to add?"
       />
     </div>
     <div class="ask-chatgpt-reply-text-container">
@@ -26,6 +26,20 @@
     </div>
 
     <div class="ask-chatgpt-version-tag">Version 1.0</div>
+  </div>
+  <div class="ask-chatgpt-overlay-donate">
+    <img
+      class="ask-chatgpt-donate-image"
+      src="./TRC20_USDT.png"
+      alt="TRC20_USDT"
+    />
+    <div class="ask-chatgpt-donate-text">
+      Please donate if you want to improve this project. You can also contact me
+      at ycfelix1@gmail.com for queries such as purchasing new openai accounts,
+      varify new account, bug reports, etc. USDT(TRC20):
+      TRgohLfyiAQgGGfRepztDUh1QibgKrPo7G
+    </div>
+    <button class="ask-chatgpt-donate-ok-button">OK</button>
   </div>
 </div>
 
@@ -121,5 +135,37 @@
     right: 10px;
     font-size: 12px;
     color: rgb(0, 0, 0);
+  }
+  .ask-chatgpt-overlay-donate {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    display: none;
+  }
+
+  .ask-chatgpt-donate-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 80%;
+    max-height: 80%;
+  }
+
+  .ask-chatgpt-donate-ok-button {
+    display: block;
+    margin: 20px auto 0;
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
   }
 </style>

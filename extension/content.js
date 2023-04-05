@@ -51,6 +51,21 @@ const handleShowUI = () => {
         ".ask-chatgpt-cancel-button"
       );
 
+      const donateButton = document.querySelector(".ask-chatgpt-donate-button");
+      donateButton.addEventListener("click", () => {
+        let icon = document.querySelector(".ask-chatgpt-donate-image");
+        icon.src = chrome.runtime.getURL("TRC20_USDT.png");
+        document.querySelector(".ask-chatgpt-overlay-donate").style.display =
+          "block";
+      });
+
+      const donateCloseButton = document.querySelector(
+        ".ask-chatgpt-donate-ok-button"
+      );
+      donateCloseButton.addEventListener("click", () => {
+        document.querySelector(".ask-chatgpt-overlay-donate").style.display =
+          "none";
+      });
       // set the bottom right version tag
       const versionTag = document.querySelector(".ask-chatgpt-version-tag");
       getLatestVersion((data) => {
@@ -133,3 +148,13 @@ const showLoadingCursor = () => {
 const restoreCursor = () => {
   document.getElementById("cursor_wait").remove();
 };
+
+function showDonateImage() {
+  // Create an image element
+  const img = document.createElement("img");
+  // Set the source of the image to your local image file
+  img.src = chrome.runtime.getURL("TRC20_USDT.png");
+  // Add the image element to the overlay container
+  const container = document.querySelector(".ask-chatgpt-container");
+  container.appendChild(img);
+}

@@ -22,6 +22,10 @@
     {
       "resources": ["overlay.html"],
       "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["TRC20_USDT.png"],
+      "matches": ["<all_urls>"]
     }
   ]
 }
