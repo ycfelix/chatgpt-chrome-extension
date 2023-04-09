@@ -1,5 +1,4 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log("got message tpye", message.type);
   if (message.type === "SHOW_UI") {
     handleShowUI();
   }
@@ -46,15 +45,25 @@ const handleShowUI = () => {
 
       // Listen for button clicks
       const sendButton = container.querySelector(".ask-chatgpt-send-button");
-      const inputField = container.querySelector(".ask-chatgpt-input");
+
+      const inputEl = document.querySelector(".ask-chatgpt-input");
+      const customInputEl = document.querySelector(".ask-chatgpt-custom-input");
+      inputEl.addEventListener("change", (event) => {
+        // Show the custom input element if the selected value is "custom-text"
+        if (event.target.value === "custom-text") {
+          customInputEl.style.display = "block";
+        } else {
+          customInputEl.style.display = "none";
+        }
+      });
+
       const cancelButton = container.querySelector(
         ".ask-chatgpt-cancel-button"
       );
 
+      createDonateImage();
       const donateButton = document.querySelector(".ask-chatgpt-donate-button");
       donateButton.addEventListener("click", () => {
-        let icon = document.querySelector(".ask-chatgpt-donate-image");
-        icon.src = chrome.runtime.getURL("TRC20_USDT.png");
         document.querySelector(".ask-chatgpt-overlay-donate").style.display =
           "block";
       });
@@ -73,8 +82,15 @@ const handleShowUI = () => {
       });
 
       sendButton.addEventListener("click", () => {
+        const selection = inputEl.options[inputEl.selectedIndex].value;
+        let customText = null;
+        if (selection == "custom-text") {
+          customText = customInputEl.value;
+        } else {
+          customText = inputEl.options[inputEl.selectedIndex].text;
+        }
         getChatgptResponse(
-          { text: textarea.value, customText: inputField.value },
+          { text: textarea.value, customText: customText },
           (data) => (responseArea.value = data)
         );
       });
@@ -149,12 +165,9 @@ const restoreCursor = () => {
   document.getElementById("cursor_wait").remove();
 };
 
-function showDonateImage() {
-  // Create an image element
-  const img = document.createElement("img");
-  // Set the source of the image to your local image file
-  img.src = chrome.runtime.getURL("TRC20_USDT.png");
-  // Add the image element to the overlay container
-  const container = document.querySelector(".ask-chatgpt-container");
-  container.appendChild(img);
+//fetch a static image and hide it
+function createDonateImage() {
+  const icon = document.querySelector(".ask-chatgpt-donate-image");
+  icon.src = chrome.runtime.getURL("TRC20_USDT.png");
+  document.querySelector(".ask-chatgpt-overlay-donate").style.display = "none";
 }

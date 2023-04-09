@@ -7,10 +7,37 @@
       ></textarea>
     </div>
     <div class="ask-chatgpt-input-container">
+      <select class="ask-chatgpt-input">
+        <option value="">Select an option</option>
+        <option value="reply-email" selected="selected">
+          Generate a reply for this email
+        </option>
+        <option value="summarize-text">Summarize this text</option>
+        <option value="correct-grammar">Correct my grammar</option>
+        <option value="generate-hashtag">
+          Generate a hashtag for this post
+        </option>
+        <option value="generate-headline">
+          Generate a headline for this text
+        </option>
+        <option value="generate-taglist">
+          Generate a creative tagline for this product/service
+        </option>
+        <option value="generate-product-description">
+          Generate a product description for this product/service
+        </option>
+        <option value="generate-social-media">
+          Generate a social media post for this text
+        </option>
+        <option value="generate-tweet">Generate a tweet</option>
+        <option value="paraphrase-text">Paraphrase this sentence</option>
+        <option value="custom-text">Enter your text here...</option>
+      </select>
       <input
-        class="ask-chatgpt-input"
         type="text"
-        placeholder="Any additional requirment to add?"
+        class="ask-chatgpt-custom-input"
+        placeholder="Enter your text here..."
+        style="display: none"
       />
     </div>
     <div class="ask-chatgpt-reply-text-container">
@@ -28,11 +55,7 @@
     <div class="ask-chatgpt-version-tag">Version 1.0</div>
   </div>
   <div class="ask-chatgpt-overlay-donate">
-    <img
-      class="ask-chatgpt-donate-image"
-      src="./TRC20_USDT.png"
-      alt="TRC20_USDT"
-    />
+    <img class="ask-chatgpt-donate-image" />
     <div class="ask-chatgpt-donate-text">
       Please donate if you want to improve this project. You can also contact me
       at ycfelix1@gmail.com for queries such as purchasing new openai accounts,

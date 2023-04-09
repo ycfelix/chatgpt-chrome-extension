@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Ask ChatGPT",
   "version": "1.0.0",
-  "permissions": ["contextMenus", "activeTab", "scripting"],
+  "permissions": ["contextMenus", "activeTab", "scripting", "storage"],
   "icons": {
     "16": "icon-16.png",
     "48": "icon-48.png",
