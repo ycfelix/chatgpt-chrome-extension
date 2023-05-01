@@ -6,7 +6,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 const getChatgptResponse = (data, onResponse) => {
   showLoadingCursor();
-  fetch("http://localhost:3000", {
+  fetch("https://vuqwb4q6nj.execute-api.ap-east-1.amazonaws.com", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -112,7 +112,7 @@ const getLatestVersion = (onResponse) => {
     });
     return;
   }
-  fetch("http://localhost:3000/version")
+  fetch("https://vuqwb4q6nj.execute-api.ap-east-1.amazonaws.com/version")
     .then((response) => response.json())
     .then((data) => {
       onResponse({
