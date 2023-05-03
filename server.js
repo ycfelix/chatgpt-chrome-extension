@@ -60,7 +60,7 @@ app.post("/", async (req, res) => {
   try {
     console.log(req.body);
     const rawReply = await oraPromise(
-      conversation.sendMessage("Can you "+req.body.customText+"for below sentences? \n"+req.body.message),
+      conversation.sendMessage("Can you "+req.body.customText+" for below sentences? \n"+req.body.message),
       {
         text: req.body.message,
       }
