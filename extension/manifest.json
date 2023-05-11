@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Web ChatGPT.ai",
   "version": "1.0.0",
-  "permissions": ["contextMenus", "activeTab", "scripting", "storage"],
+  "permissions": ["contextMenus", "scripting"],
   "icons": {
     "16": "icon-16.png",
     "48": "icon-48.png",
@@ -11,9 +11,11 @@
   "background": {
     "service_worker": "background.js"
   },
+  "host_permissions": ["<all_urls>"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
+      "match_origin_as_fallback": true,
       "js": ["content.js"]
     }
   ],
